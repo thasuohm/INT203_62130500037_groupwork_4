@@ -10,7 +10,8 @@ const app = {
                 {images: 'images/dekisugi.jpg', name : 'Dekisugi',fav: false,dnshow:false,choosed:false},
                 ],
            schbutton:{searchicon : 'images/search-black-18dp.svg',dnshow:true},
-           favicon: 'images/favorite.svg'
+           favicon: 'images/favorite.svg',
+           favborder: 'images/favorite_border.svg'
            ,findpic:''
            ,count:[]
            ,nopic:false

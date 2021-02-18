@@ -28,6 +28,7 @@
  
     <div class  ="bg-gray-300 p-5 text-center " >
     <h1 class="text-3xl mt-8 "> Doraemon Gallery( {{ countUnLike }} ), Liked( {{ countLike }} )</h1> 
+    
   <span v-if = "schbutton.dnshow == true">
     <button> <img :src = "schbutton.searchicon" @click="searchbutton" class = "inline w-9 " ></button>
   </span>
@@ -36,11 +37,12 @@
   class="px-36 py-2 bg-white rounded border-2 border-gray-500 mt-6">
 
   <button @click = "cancel" class="ml-2 bg-red-500 text-white  py-1 px-2 rounded">Cancel</button>
-
+ 
  </span>
 
 
   </div>
+  
     
     <ul class ="mt-8 pt-8  bg-gray-300 grid grid-cols-3 justify-items-center" > 
       
@@ -56,10 +58,13 @@
     </button>
     
 
-      <h1 class="mt-2 mb-4 text-xl "><b>{{image.name}}</b><span v-show="image.fav">
-      <img class = "inline ml-2 " :src = "favicon"></span></h1>
+     <h1 class="mt-2 mb-4 text-xl "><b>{{image.name}}</b>
+      <button @click="favorite(index)" >  <img v-show="!image.fav" class = "inline ml-2 " :src = "favborder"></button>
+      <span v-show="image.fav">
+        <button @click="favorite(index)" > <img   class = "inline ml-2" :src = "favicon"></button>
+      </span>
+    </h1>
       
-  
     
     </li> 
   <h1 v-if="nopic == true" class="mb-20 text-5xl">No Photo</h1>
