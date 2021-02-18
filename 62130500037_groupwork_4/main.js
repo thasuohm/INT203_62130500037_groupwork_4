@@ -20,20 +20,14 @@ const app = {
     methods: {
        choosed(index){
        this.ind = index  ;
-       this.gallery[index].choosed = true;
-       
-        console.log(this.ind);
+       this.gallery[index].choosed = true; 
        },
        close(){
 
         this.gallery[this.ind].choosed = false;
 
        }
-       
-       
-       
        ,
-
         searchbutton(){
             this.schbutton.dnshow = false;
         },
@@ -76,7 +70,6 @@ const app = {
 
             }
 
-        console.log(this.count);
         findpic = '';
            
          }
