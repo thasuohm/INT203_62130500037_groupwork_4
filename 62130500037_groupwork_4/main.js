@@ -65,11 +65,10 @@ const app = {
                 this.count.splice(0,this.count.length-1)
             }
             //if it can find picture nopic(<<- yor ma jak no picture) will not show 
-            else if(this.count[this.count.length-1] !== this.gallery.length-1){
+            else if(this.count[this.count.length-1] !== this.gallery.length-1 ||this.findpic.length <1){
             this.nopic = false;
-
+            this.count.push(1);
             }
-
         findpic = '';
            
          }
