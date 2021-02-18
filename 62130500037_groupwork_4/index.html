@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>037 Groupwork 3</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+
+</head>
+
+<body id = "gallery" class="bg-blue-300">
+
+ <div>
+  <div id="app" class = ' max-w-6xl mx-auto  '>
+ 
+    <div class  ="bg-gray-300 p-5 text-center " >
+    <h1 class="text-3xl mt-8 "> Doraemon Gallery( {{ countUnLike }} ), Liked( {{ countLike }} )</h1> 
+  <span v-if = "schbutton.dnshow == true">
+    <button> <img :src = "schbutton.searchicon" @click="searchbutton" class = "inline w-9 " ></button>
+  </span>
+
+ <span :class="[schbutton.dnshow ? 'hidden':'']">    <input   v-model="findpic" @keyup.enter="findPicture" placeholder="Search your Photo" 
+  class="px-36 py-2 bg-white rounded border-2 border-gray-500 mt-6">
+
+  <button @click = "cancel" class="ml-2 bg-red-500 text-white  py-1 px-2 rounded">Cancel</button>
+
+ </span>
+
+
+  </div>
+    
+    <ul class ="mt-8 pt-8  bg-gray-300 grid grid-cols-3 justify-items-center" > 
+      
+      
+      <li v-for="(image,index) in gallery" :class="[image.dnshow ? 'hidden':'']" >
+
+
+   
+      <button @dblclick="favorite(index)"@click="choosed(index)">
+        
+      <img id ="hello" :src = "image.images" class = "w-72 h-44  mt-2 inline"  >  
+          
+    </button>
+    
+
+      <h1 class="mt-2 mb-4 text-xl "><b>{{image.name}}</b><span v-show="image.fav">
+      <img class = "inline ml-2 " :src = "favicon"></span></h1>
+      
+  
+    
+    </li> 
+  <h1 v-if="nopic == true" class="mb-20 text-5xl">No Photo</h1>
+  
+    <span v-if="gallery[ind].choosed == true" >
+      <span class="fixed top-0 left-0 bg-black  z-0" style="width: 100%; height: 100%;"></span>
+      <button @click="close" class="absolute inline text-8xl  z-50 text-white"  style="top: 0%; left: 90%; ">&times;</button>  
+       <img :src = gallery[ind].images  class = "fixed w-96 " style="top: 20%; left: 30%; width: 45%;">
+     
+   
+    
+  </span>
+   </ul>
+</div>
+
+
+
+</div>
+
+
+  <!-- my main.js -->
+  <script src="./main.js"></script>
+</body>
+
+</html>
